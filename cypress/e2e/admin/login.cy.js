@@ -76,6 +76,7 @@ context('Login', () => {
         cy.get('a[class="button"]')
         .click()
         cy.url().should('eq', 'https://dissertation-interface-web-app.vercel.app/')
+        
     
         })
           
