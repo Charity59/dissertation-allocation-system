@@ -1,7 +1,7 @@
 ///reference types="Cypress"/>
 
 
-context('Admin Login', () => {
+context('Student Login', () => {
     beforeEach(() => {
       cy.visit('/')
     })
@@ -27,21 +27,21 @@ context('Admin Login', () => {
       })
     })
     describe('User', () => {
-      it('can login a superadmin', () => {
+      it('can login a student', () => {
           cy.get('#email')
-          .type('superadmin1@shu.com')
-          .should('have.value', 'superadmin1@shu.com')
+          .type('jolamattew@shu.ac.uk')
+          .should('have.value', 'jolamattew@shu.ac.uk')
           cy.get('#password')
-          .type('Password10$')
-          .should('have.value', 'Password10$')
+          .type('Password10@')
+          .should('have.value', 'Password10@')
           cy.get('#submit').click()
-          cy.url().should('include', '/admin/dashboard')
+          cy.url().should('include', '/student/dashboard')
   
       })
       it('cannot login with wrong password', () => {
         cy.get('#email')
-        .type('superadmin1@shu.com')
-        .should('have.value', 'superadmin1@shu.com')
+        .type('jolamattew@shu.ac.uk')
+        .should('have.value', 'jolamattew@shu.ac.uk')
         cy.get('#password')
         .type('Password10*')
         .should('have.value', 'Password10*')
@@ -52,11 +52,11 @@ context('Admin Login', () => {
   
       it('password is case sensitive', () => {
         cy.get('#email')
-        .type('superadmin1@shu.com')
-        .should('have.value', 'superadmin1@shu.com')
+        .type('jolamattew@shu.ac.uk')
+        .should('have.value', 'jolamattew@shu.ac.uk')
         cy.get('#password')
-        .type('PASSWORD10$')
-        .should('have.value', 'PASSWORD10$')
+        .type('PASSWORD10@')
+        .should('have.value', 'PASSWORD10@')
         cy.get('#submit').click()
         cy.url().should('eq', 'https://dissertation-interface-web-app.vercel.app/auth/sign-in')
 
@@ -64,14 +64,13 @@ context('Admin Login', () => {
 
        it('can logout', () => {
         cy.get('#email')
-        .type('superadmin1@shu.com')
-        .should('have.value', 'superadmin1@shu.com')
+        .type('jolamattew@shu.ac.uk')
+        .should('have.value', 'jolamattew@shu.ac.uk')
         cy.get('#password')
-        .type('Password10$')
-        .should('have.value', 'Password10$')
+        .type('Password10@')
+        .should('have.value', 'Password10@')
         cy.get('#submit')
         .click()
-        cy.wait(5000)
         cy.get('.logo')
         .click()
         cy.wait(5000)

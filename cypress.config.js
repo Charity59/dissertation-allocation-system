@@ -4,7 +4,7 @@ module.exports = defineConfig({
   watchForFileChanges: false,
   experimentalStudio: true,
   defaultCommandTimeout: 60000,
-  viewportWidth: 1000,
+  viewportWidth: 1500,
   viewportHeight: 1000,
   e2e: {
     chromeWebSecurity: false,

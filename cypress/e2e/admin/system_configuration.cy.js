@@ -20,6 +20,7 @@ context('System Configuration', () => {
         it('Add New Department', () => {
             cy.contains('Departments')
             .click()
+            cy.wait(500)
             cy.get('button[class="button is-primary"]')
             .click()
             cy.get('#name')
@@ -58,6 +59,7 @@ context('System Configuration', () => {
         it('Add a New Course', () => {
             cy.contains('Courses')
             .click()
+            cy.wait(500)
             cy.get('button[class="button is-primary"]')
             .click()
             cy.get('#name')
@@ -86,7 +88,7 @@ context('System Configuration', () => {
 
         })
 
-        it.only('Search for Course by Name', () => {
+        it('Search for Course by Name', () => {
             cy.contains('Courses')
             .click()
             cy.get('input[type="text"]')

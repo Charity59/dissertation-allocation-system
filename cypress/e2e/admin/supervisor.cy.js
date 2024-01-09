@@ -34,8 +34,9 @@ context('Supervisor', () => {
 
         it('Edit Supervisor', () => {
             cy.wait(500)
-            cy.get(':nth-child(2) > :nth-child(5) > :nth-child(1)')
+            cy.contains('Edit')
             .click()
+            cy.wait(500)
             cy.get('#firstName')
             .clear()
             .type('Nathan')
@@ -84,7 +85,7 @@ context('Supervisor', () => {
             cy.get('[href="#tab=invites"]')
             .click()
             cy.wait(500)
-            cy.get(':nth-child(2) > :nth-child(5) > :nth-child(1)')
+            cy.contains('View Details')
             .click()
             cy.wait(500)
             cy.get('.text-blue')
@@ -104,7 +105,7 @@ context('Supervisor', () => {
 
         })
 
-        it.only('Delete Pending Supervisor', () => {
+        it('Delete Pending Supervisor', () => {
             cy.get('[href="#tab=invites"]')
             .click()
             cy.get(':nth-child(3) > :nth-child(5) > .has-text-red')
